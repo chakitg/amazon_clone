@@ -33,7 +33,9 @@
     "start": "nodemon --watch backend --exec babel-node backend/server.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "build": "rm -rf dist && babel backend -d dist  && cd frontend && npm install && npm run build",
+    "remove-build": "rmdir /s /q build",
+    "create-build": "mkdir build",
+    "clean": "npm run remove-build && npm run create-build",
     "heroku-postbuild-x": "npm run build && cd frontend && npm install && npm run build"
   },
   
